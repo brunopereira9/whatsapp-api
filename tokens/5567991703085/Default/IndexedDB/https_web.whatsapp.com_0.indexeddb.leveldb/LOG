@@ -1,0 +1,96 @@
+2021/12/17-14:46:17.908 5c28 Reusing MANIFEST C:\Dev\wpmanager\new-api-2\tokens\5567991703085\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/12/17-14:46:17.910 5c28 Recovering log #189
+2021/12/17-14:46:18.321 5c28 Reusing old log C:\Dev\wpmanager\new-api-2\tokens\5567991703085\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000189.log 
+2021/12/17-14:46:18.323 5c28 Delete type=2 #180
+2021/12/17-14:46:18.323 5c28 Delete type=2 #181
+2021/12/17-14:46:18.323 5c28 Delete type=2 #182
+2021/12/17-14:46:18.323 5c28 Delete type=2 #183
+2021/12/17-14:46:18.323 5c28 Delete type=2 #184
+2021/12/17-14:46:18.323 5c28 Delete type=2 #185
+2021/12/17-14:46:18.323 5c28 Delete type=2 #186
+2021/12/17-14:46:18.323 5c28 Delete type=2 #187
+2021/12/17-14:46:18.323 5c28 Delete type=2 #190
+2021/12/17-14:46:32.389 5e9c Level-0 table #201: started
+2021/12/17-14:46:32.558 5e9c Level-0 table #201: 1057917 bytes OK
+2021/12/17-14:46:32.567 5e9c Delete type=0 #189
+2021/12/17-14:46:32.609 5d38 Compacting 1@1 + 8@2 files
+2021/12/17-14:46:32.905 5d38 Generated table #202@1: 15089 keys, 2193398 bytes
+2021/12/17-14:46:33.129 5d38 Generated table #203@1: 3703 keys, 2155504 bytes
+2021/12/17-14:46:33.509 5d38 Generated table #204@1: 4946 keys, 2156600 bytes
+2021/12/17-14:46:33.936 5d38 Generated table #205@1: 16086 keys, 2176325 bytes
+2021/12/17-14:46:34.424 5d38 Generated table #206@1: 30978 keys, 2264176 bytes
+2021/12/17-14:46:35.281 5d38 Generated table #207@1: 38406 keys, 2226282 bytes
+2021/12/17-14:46:36.030 5d38 Generated table #208@1: 64915 keys, 2206109 bytes
+2021/12/17-14:46:36.469 5d38 Generated table #209@1: 101649 keys, 2246967 bytes
+2021/12/17-14:46:36.469 5d38 Compacted 1@1 + 8@2 files => 17625361 bytes
+2021/12/17-14:46:36.473 5d38 compacted to: files[ 0 0 8 0 0 0 0 ]
+2021/12/17-14:46:36.474 5d38 Delete type=2 #191
+2021/12/17-14:46:36.474 5d38 Delete type=2 #192
+2021/12/17-14:46:36.474 5d38 Delete type=2 #193
+2021/12/17-14:46:36.474 5d38 Delete type=2 #194
+2021/12/17-14:46:36.474 5d38 Delete type=2 #195
+2021/12/17-14:46:36.474 5d38 Delete type=2 #196
+2021/12/17-14:46:36.474 5d38 Delete type=2 #197
+2021/12/17-14:46:36.474 5d38 Delete type=2 #198
+2021/12/17-14:46:36.474 5d38 Delete type=2 #201
+2021/12/17-14:47:10.473 35bc Level-0 table #211: started
+2021/12/17-14:47:10.704 35bc Level-0 table #211: 1096712 bytes OK
+2021/12/17-14:47:10.708 35bc Delete type=0 #200
+2021/12/17-14:47:10.744 35bc Compacting 1@1 + 8@2 files
+2021/12/17-14:47:11.001 35bc Generated table #212@1: 16214 keys, 2196628 bytes
+2021/12/17-14:47:11.298 35bc Generated table #213@1: 3702 keys, 2154059 bytes
+2021/12/17-14:47:11.560 35bc Generated table #214@1: 4913 keys, 2157028 bytes
+2021/12/17-14:47:11.961 35bc Generated table #215@1: 14729 keys, 2176001 bytes
+2021/12/17-14:47:12.483 35bc Generated table #216@1: 31427 keys, 2262714 bytes
+2021/12/17-14:47:13.022 35bc Generated table #217@1: 39230 keys, 2229187 bytes
+2021/12/17-14:47:13.447 35bc Generated table #218@1: 56583 keys, 2194614 bytes
+2021/12/17-14:47:13.890 35bc Generated table #219@1: 103155 keys, 2255710 bytes
+2021/12/17-14:47:13.971 35bc Generated table #220@1: 20713 keys, 456671 bytes
+2021/12/17-14:47:13.971 35bc Compacted 1@1 + 8@2 files => 18082612 bytes
+2021/12/17-14:47:13.974 35bc compacted to: files[ 0 0 9 0 0 0 0 ]
+2021/12/17-14:47:13.975 35bc Delete type=2 #202
+2021/12/17-14:47:13.975 35bc Delete type=2 #203
+2021/12/17-14:47:13.975 35bc Delete type=2 #204
+2021/12/17-14:47:13.976 35bc Delete type=2 #205
+2021/12/17-14:47:13.976 35bc Delete type=2 #206
+2021/12/17-14:47:13.976 35bc Delete type=2 #207
+2021/12/17-14:47:13.976 35bc Delete type=2 #208
+2021/12/17-14:47:13.976 35bc Delete type=2 #209
+2021/12/17-14:47:13.976 35bc Delete type=2 #211
+2021/12/17-14:47:49.096 35bc Level-0 table #222: started
+2021/12/17-14:47:49.237 35bc Level-0 table #222: 1046144 bytes OK
+2021/12/17-14:47:49.241 35bc Delete type=0 #210
+2021/12/17-14:47:50.293 53d0 Compacting 1@1 + 9@2 files
+2021/12/17-14:47:50.591 53d0 Generated table #223@1: 16244 keys, 2194859 bytes
+2021/12/17-14:47:50.766 53d0 Generated table #224@1: 3704 keys, 2154023 bytes
+2021/12/17-14:47:51.025 53d0 Generated table #225@1: 4912 keys, 2157371 bytes
+2021/12/17-14:47:51.478 53d0 Generated table #226@1: 14687 keys, 2175226 bytes
+2021/12/17-14:47:51.983 53d0 Generated table #227@1: 31436 keys, 2262676 bytes
+2021/12/17-14:47:52.430 53d0 Generated table #228@1: 37352 keys, 2227813 bytes
+2021/12/17-14:47:52.768 53d0 Generated table #229@1: 52512 keys, 2188575 bytes
+2021/12/17-14:47:53.205 53d0 Generated table #230@1: 104003 keys, 2256624 bytes
+2021/12/17-14:47:53.386 53d0 Generated table #231@1: 39019 keys, 862344 bytes
+2021/12/17-14:47:53.386 53d0 Compacted 1@1 + 9@2 files => 18479511 bytes
+2021/12/17-14:47:53.389 53d0 compacted to: files[ 0 0 9 0 0 0 0 ]
+2021/12/17-14:47:53.390 53d0 Delete type=2 #212
+2021/12/17-14:47:53.390 53d0 Delete type=2 #213
+2021/12/17-14:47:53.390 53d0 Delete type=2 #214
+2021/12/17-14:47:53.390 53d0 Delete type=2 #215
+2021/12/17-14:47:53.390 53d0 Delete type=2 #216
+2021/12/17-14:47:53.391 53d0 Delete type=2 #217
+2021/12/17-14:47:53.391 53d0 Delete type=2 #218
+2021/12/17-14:47:53.391 53d0 Delete type=2 #219
+2021/12/17-14:47:53.391 53d0 Delete type=2 #220
+2021/12/17-14:47:53.391 53d0 Delete type=2 #222
+2021/12/17-14:48:27.284 5d38 Level-0 table #233: started
+2021/12/17-14:48:27.461 5d38 Level-0 table #233: 1082091 bytes OK
+2021/12/17-14:48:27.466 5d38 Delete type=0 #221
+2021/12/17-14:48:28.508 345c Compacting 1@1 + 9@2 files
+2021/12/17-14:48:28.794 345c Generated table #234@1: 16399 keys, 2197865 bytes
+2021/12/17-14:48:29.041 345c Generated table #235@1: 3707 keys, 2154881 bytes
+2021/12/17-14:48:29.289 345c Generated table #236@1: 4913 keys, 2156715 bytes
+2021/12/17-14:48:29.587 345c Generated table #237@1: 14561 keys, 2174814 bytes
+2021/12/17-14:48:30.132 345c Generated table #238@1: 31460 keys, 2262333 bytes
+2021/12/17-14:48:30.538 345c Generated table #239@1: 37454 keys, 2227246 bytes
+2021/12/17-14:48:30.902 345c Generated table #240@1: 45799 keys, 2179615 bytes
+2021/12/17-14:48:31.306 345c Generated table #241@1: 104931 keys, 2255762 bytes

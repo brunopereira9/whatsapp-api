@@ -1,0 +1,17 @@
+2021/12/17-14:43:40.586 2dc0 Reusing MANIFEST C:\Dev\wpmanager\new-api-2\tokens\5567991703085\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/12/17-14:43:40.597 2dc0 Recovering log #178
+2021/12/17-14:43:40.695 2dc0 Reusing old log C:\Dev\wpmanager\new-api-2\tokens\5567991703085\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000178.log 
+2021/12/17-14:44:22.869 8b4 Level-0 table #190: started
+2021/12/17-14:44:23.001 8b4 Level-0 table #190: 1099558 bytes OK
+2021/12/17-14:44:23.006 8b4 Delete type=0 #178
+2021/12/17-14:44:24.030 3114 Compacting 1@1 + 8@2 files
+2021/12/17-14:44:24.393 3114 Generated table #191@1: 14044 keys, 2193506 bytes
+2021/12/17-14:44:24.648 3114 Generated table #192@1: 3686 keys, 2155351 bytes
+2021/12/17-14:44:24.981 3114 Generated table #193@1: 4945 keys, 2156156 bytes
+2021/12/17-14:44:25.223 3114 Generated table #194@1: 17456 keys, 2178811 bytes
+2021/12/17-14:44:25.645 3114 Generated table #195@1: 30297 keys, 2264820 bytes
+2021/12/17-14:44:26.106 3114 Generated table #196@1: 39731 keys, 2225419 bytes
+2021/12/17-14:44:26.404 3114 Generated table #197@1: 70813 keys, 2214034 bytes
+2021/12/17-14:44:26.746 3114 Generated table #198@1: 81436 keys, 1815684 bytes
+2021/12/17-14:44:26.746 3114 Compacted 1@1 + 8@2 files => 17203781 bytes
+2021/12/17-14:44:26.761 3114 compacted to: files[ 0 0 8 0 0 0 0 ]
