@@ -24,12 +24,16 @@ app.get("/", async (req, res, next) => {
 });//
 
 app.get("/start", async (req, res, next) => {
-    console.log("starting..." + req.query.sessionName);
-    let session = await Sessions.start(req.query.sessionName);
-    if (["CONNECTED", "QRCODE", "STARTING"].includes(session.state)) {
-        res.json({ result: 'success', message: session.state });
-    } else {
-        res.json({ result: 'error', message: session.state });
+    try{
+        console.log("starting..." + req.query.sessionName);
+        let session = await Sessions.start(req.query.sessionName);
+        if (["CONNECTED", "QRCODE", "STARTING"].includes(session.state)) {
+            res.json({ result: 'success', message: session.state });
+        } else {
+            res.json({ result: 'error', message: session.state });
+        }
+    }catch(error){
+        res.json({ result: 'error', error });
     }
 });//start
 
@@ -44,25 +48,28 @@ app.get("/status", async (req, res, next) => {
 app.get("/qrcode", async (req, res, next) => {
     console.log("qrcode..." + req.query.sessionName);
     let session = Sessions.getSession(req.query.sessionName);
-
-    if (session != false) {
-        if (session.status != 'isLogged') {
-            if (req.query.image) {
-                session.qrcode = session.qrcode.replace('data:image/png;base64,', '');
-                const imageBuffer = Buffer.from(session.qrcode, 'base64');
-                res.writeHead(200, {
-                    'Content-Type': 'image/png',
-                    'Content-Length': imageBuffer.length
-                });
-                res.end(imageBuffer);
+    try{
+        if (session != false) {
+            if (session.status != 'isLogged') {
+                if (req.query.image) {
+                    session.qrcode = session.qrcode.replace('data:image/png;base64,', '');
+                    const imageBuffer = Buffer.from(session.qrcode, 'base64');
+                    res.writeHead(200, {
+                        'Content-Type': 'image/png',
+                        'Content-Length': imageBuffer.length
+                    });
+                    res.end(imageBuffer);
+                } else {
+                    res.json({ result: "success", message: session.state, qrcode: session.qrcode });
+                }
             } else {
-                res.json({ result: "success", message: session.state, qrcode: session.qrcode });
+                res.json({ result: "error", message: session.state });
             }
         } else {
-            res.json({ result: "error", message: session.state });
+            res.json({ result: "error", message: "NOTFOUND" });
         }
-    } else {
-        res.json({ result: "error", message: "NOTFOUND" });
+    }catch(error){
+        res.json({ result: 'error', error });
     }
 });//qrcode
 
@@ -72,8 +79,12 @@ app.post("/sendHook", async function sendText(req, res, next) {
 });//sendText
 
 app.post("/sendText", async function sendText(req, res, next) {
-    let result = await Sessions.sendText(req);
-    res.json(result);
+    try{
+        let result = await Sessions.sendText(req);
+        res.json(result);
+    }catch(error){
+        res.json({ result: 'error', error });
+    }
 });//sendText
 
 app.post("/sendTextToStorie", async (req, res, next) => {
