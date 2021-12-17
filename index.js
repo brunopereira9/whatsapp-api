@@ -11,7 +11,7 @@ app.use(express.json({
     extended: true
 }));
 
-let appPort = process.env.HOST_PORT || 3085;
+let appPort = process.env.PORT || 3085;
 
 app.listen(appPort, () => {
     console.log("Http server running on port " + appPort);
