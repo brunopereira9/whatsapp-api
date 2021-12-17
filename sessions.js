@@ -76,7 +76,7 @@ module.exports = class Sessions {
                 console.log('#### status=' + statusSession + ' sessionName=' + session);
             }, {
             folderNameToken: 'tokens',
-            headless: true,
+            headless: false,
             devtools: false,
             useChrome: false,
             debug: false,
