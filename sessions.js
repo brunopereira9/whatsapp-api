@@ -67,57 +67,38 @@ module.exports = class Sessions {
 
         const client = await venom.create(
             sessionName,
-            (base64Qr, asciiQR, attempts) => {
-                session.state = "QRCODE";
-                session.qrcode = base64Qr;
+            //catchQR
+            (base64Qrimg, asciiQR, attempts, urlCode) => {
+                console.log('Number of attempts to read the qrcode: ', attempts);
+                console.log('Terminal qrcode: ', asciiQR);
+                console.log('base64 image string qrcode: ', base64Qrimg);
+                console.log('urlCode (data-ref): ', urlCode);
             },
             // statusFind
             (statusSession, session) => {
-                console.log('#### status=' + statusSession + ' sessionName=' + session);
-            }, {
-            folderNameToken: 'tokens',
-            headless: false,
-            devtools: false,
-            useChrome: false,
-            debug: false,
-            logQR: true,
-            browserArgs: [
-                '--log-level=3',
-                '--no-default-browser-check',
-                '--disable-site-isolation-trials',
-                '--no-experiments',
-                '--ignore-gpu-blacklist',
-                '--ignore-certificate-errors',
-                '--ignore-certificate-errors-spki-list',
-                '--disable-gpu',
-                '--disable-extensions',
-                '--disable-default-apps',
-                '--enable-features=NetworkService',
-                '--disable-setuid-sandbox',
-                '--no-sandbox',
-                // Extras
-                '--disable-webgl',
-                '--disable-threaded-animation',
-                '--disable-threaded-scrolling',
-                '--disable-in-process-stack-traces',
-                '--disable-histogram-customizer',
-                '--disable-gl-extensions',
-                '--disable-composited-antialiasing',
-                '--disable-canvas-aa',
-                '--disable-3d-apis',
-                '--disable-accelerated-2d-canvas',
-                '--disable-accelerated-jpeg-decoding',
-                '--disable-accelerated-mjpeg-decode',
-                '--disable-app-list-dismiss-on-blur',
-                '--disable-accelerated-video-decode',
-            ],
-            refreshQR: 15000,
-            autoClose: 60000,
-            disableSpins: true,
-            disableWelcome: false,
-            createPathFileToken: true,
-            waitForLogin: true
-        });
+                console.log('Status Session: ', statusSession); //return isLogged || notLogged || browserClose || qrReadSuccess || qrReadFail || autocloseCalled || desconnectedMobile || deleteToken
+                //Create session wss return "serverClose" case server for close
+                console.log('Session name: ', session);
+            },
+            // options
+            {
+                folderNameToken: 'tokens', //folder name when saving tokens
+                mkdirFolderToken: '', //folder directory tokens, just inside the venom folder, example:  { mkdirFolderToken: '/node_modules', } //will save the tokens folder in the node_modules directory
+                headless: true, // Headless chrome
+                devtools: false, // Open devtools by default
+                useChrome: true, // If false will use Chromium instance
+                debug: false, // Opens a debug session
+                logQR: true, // Logs QR automatically in terminal
+                browserWS: '', // If u want to use browserWSEndpoint
+                browserArgs: [''], // Parameters to be added into the chrome browser instance
+                puppeteerOptions: {}, // Will be passed to puppeteer.launch
+                disableSpins: true, // Will disable Spinnies animation, useful for containers (docker) for a better log
+                disableWelcome: true, // Will disable the welcoming message which appears in the beginning
+                updatesLog: true, // Logs info updates automatically in terminal
+                autoClose: 60000, // Automatically closes the venom-bot only when scanning the QR code (default 60 seconds, if you want to turn it off, assign 0 or false)
+                createPathFileToken: false, //creates a folder when inserting an object in the client's browser, to work it is necessary to pass the parameters in the function create browserSessionToken
+            }
+        );
         var browserSessionToken = await client.getSessionTokenBrowser();
         console.log("usou isso no create: " + JSON.stringify(browserSessionToken));
         session.state = "CONNECTED";
