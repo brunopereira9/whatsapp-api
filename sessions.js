@@ -56,7 +56,7 @@ module.exports = class Sessions {
         console.log("newSession.state: " + newSession.state);
 
         //setup session
-        newSession.client = Sessions.initSession(sessionName);
+        newSession.client = await Sessions.initSession(sessionName);
         Sessions.setup(sessionName);
 
         return newSession;
