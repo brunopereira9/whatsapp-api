@@ -92,8 +92,8 @@ app.post("/sendTextToStorie", async (req, res, next) => {
     res.json(result);
 }); //sendTextToStorie
 
-app.post("/sendFile", async (req, res, next) => {
-    let result = await Sessions.sendFile(
+app.post("/sendFileFromBase64", async (req, res, next) => {
+    let result = await Sessions.sendFileFromBase64(
         req.body.sessionName,
         req.body.number,
         req.body.base64Data,
