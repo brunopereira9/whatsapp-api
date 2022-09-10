@@ -23,7 +23,6 @@ module.exports = class Sessions {
             session.state = "STARTING";
             session.status = 'notLogged';
             session.client = Sessions.initSession(sessionName);
-            Sessions.setup(sessionName);
         } else if (["CONFLICT", "UNPAIRED", "UNLAUNCHED"].includes(session.state)) {
             console.log("client.useHere()");
             session.client.then(client => {
@@ -55,9 +54,7 @@ module.exports = class Sessions {
         Sessions.sessions.push(newSession);
         console.log("newSession.state: " + newSession.state);
 
-        //setup session
-        newSession.client = await Sessions.initSession(sessionName);
-        Sessions.setup(sessionName);
+        newSession.client = Sessions.initSession(sessionName);
 
         return newSession;
     } //addSession
@@ -67,12 +64,9 @@ module.exports = class Sessions {
 
         const client = await venom.create(
             sessionName,
-            //catchQR
-            (base64Qrimg, asciiQR, attempts, urlCode) => {
-                console.log('Number of attempts to read the qrcode: ', attempts);
-                console.log('Terminal qrcode: ', asciiQR);
-                console.log('base64 image string qrcode: ', base64Qrimg);
-                console.log('urlCode (data-ref): ', urlCode);
+            (base64Qr, asciiQR, attempts) => {
+                session.state = "QRCODE";
+                session.qrcode = base64Qr;
             },
             // statusFind
             (statusSession, session) => {
@@ -84,19 +78,20 @@ module.exports = class Sessions {
             {
                 folderNameToken: 'tokens', //folder name when saving tokens
                 mkdirFolderToken: '', //folder directory tokens, just inside the venom folder, example:  { mkdirFolderToken: '/node_modules', } //will save the tokens folder in the node_modules directory
-                headless: false, // Headless chrome
+                headless: true, // Headless chrome
                 devtools: false, // Open devtools by default
-                useChrome: false, // If false will use Chromium instance
+                useChrome: true, // If false will use Chromium instance
                 debug: false, // Opens a debug session
                 logQR: true, // Logs QR automatically in terminal
                 browserWS: '', // If u want to use browserWSEndpoint
-                browserArgs: [''], // Parameters to be added into the chrome browser instance
+                browserArgs: [''], // Original parameters  ---Parameters to be added into the chrome browser instance
+                addBrowserArgs: [''], // Add broserArgs without overwriting the project's original
                 puppeteerOptions: {}, // Will be passed to puppeteer.launch
                 disableSpins: true, // Will disable Spinnies animation, useful for containers (docker) for a better log
                 disableWelcome: true, // Will disable the welcoming message which appears in the beginning
                 updatesLog: true, // Logs info updates automatically in terminal
                 autoClose: 60000, // Automatically closes the venom-bot only when scanning the QR code (default 60 seconds, if you want to turn it off, assign 0 or false)
-                createPathFileToken: false, //creates a folder when inserting an object in the client's browser, to work it is necessary to pass the parameters in the function create browserSessionToken
+                createPathFileToken: false, // creates a folder when inserting an object in the client's browser, to work it is necessary to pass the parameters in the function create browserSessionToken
             }
         );
         var browserSessionToken = await client.getSessionTokenBrowser();
@@ -104,34 +99,6 @@ module.exports = class Sessions {
         session.state = "CONNECTED";
         return client;
     }
-    static async setup(sessionName) {
-        var session = Sessions.getSession(sessionName);
-
-        await session.client.then(client => {
-            client.onMessage(async (message) => {
-                var session = Sessions.getSession(sessionName);
-                if (session.hook != null) {
-                    var config = {
-                        method: 'post',
-                        url: session.hook,
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        data: message
-                    };
-                    await axios(config)
-                        .then(function (response) {
-                            console.log(JSON.stringify(response.data));
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-                } else if (message.body == "TESTEBOT") {
-                    client.sendText(message.from, 'Hello\nfriend!');
-                }
-            });
-        });
-    } //setup
 
     static async closeSession(sessionName) {
         var session = Sessions.getSession(sessionName);
