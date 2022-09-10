@@ -270,16 +270,12 @@ module.exports = class Sessions {
         }
     } //message to storie
 
-    static async sendFile(sessionName, number, base64Data, fileName, caption) {
+    static async sendFileFromBase64(sessionName, number, base64Data, fileName, caption) {
         var session = Sessions.getSession(sessionName);
         if (session) {
             if (session.state == "CONNECTED") {
-                var resultSendFile = await session.client.then(async (client) => {
-                    var folderName = fs.mkdtempSync(path.join(os.tmpdir(), session.name + '-'));
-                    var filePath = path.join(folderName, fileName);
-                    fs.writeFileSync(filePath, base64Data, 'base64');
-                    console.log(filePath);
-                    return await client.sendFile(number + '@c.us', filePath, fileName, caption);
+                var resultSendFileFromBase64 = await session.client.then(async (client) => {
+                    return await client.sendFileFromBase64(number + '@c.us', base64Data, fileName, caption);
                 }); //client.then(
                 return { result: "success" };
             } else {
