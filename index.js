@@ -163,15 +163,15 @@ app.get("/getAllUnreadMessages", async (req, res, next) => {
     res.json(result);
 }); //getAllUnreadMessages
 
-app.get("/checkNumberStatus", async (req, res, next) => {
+app.post("/checkNumberStatus", async (req, res, next) => {
     let result = await Sessions.checkNumberStatus(
         req.body.sessionName,
         req.body.number
     );
-    res.json(result);
+    res.status(result.status).json(result);
 }); //Verifica Numero
 
-app.get("/getNumberProfile", async (req, res, next) => {
+app.post("/getNumberProfile", async (req, res, next) => {
     let result = await Sessions.getNumberProfile(
         req.body.sessionName,
         req.body.number

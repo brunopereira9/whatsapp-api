@@ -439,20 +439,24 @@ module.exports = class Sessions {
             if (session.state == "CONNECTED") {
                 var resultcheckNumberStatus = await session.client.then(async (client) => {
                     return await client.checkNumberStatus(number + '@c.us');
+                }).catch(error => {
+                    console.error(error);
+                    return error;
                 });
-                return {
-                    result: resultcheckNumberStatus
-                };
+
+                return resultcheckNumberStatus
             } else {
                 return {
-                    result: "error",
-                    message: session.state
+                    status: 500,
+                    text: "error",
+                    connection: session.state
                 };
             }
         } else {
             return {
-                result: "error",
-                message: "NOTFOUND"
+                status: 500,
+                text: "error",
+                connection: "NOTFOUND"
             };
         }
     } //saber se o número é válido
